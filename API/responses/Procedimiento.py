@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from API.models import Procedimiento
 from API.serializers.ProcedimientoSerializer import ProcedSerializer
 import json
-@api_view(['GET','POST','DELETE','PUT'])
+@api_view(['GET','POST','PUT','DELETE'])
 def procedResponse(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -31,7 +31,7 @@ def procedResponse(request):
         data = json.loads(request.body)
         proced = Procedimiento(**data)
         #--
-        procedUpd = Procedimiento.objets.get(cod_proced = proced.cod_proced)
+        procedUpd = Procedimiento.objects.get(cod_proced = proced.cod_proced)
         procedUpd = proced
         procedUpd.save()
         return Response({'msj':'Actualizado correctamente'}, status = status.HTTP_201_CREATED)

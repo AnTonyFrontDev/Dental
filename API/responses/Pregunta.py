@@ -35,5 +35,5 @@ def PreguntaResponse(request):
         preguntaUpd = Pregunta.objects.get(cod=preguntaObj.cod)
         preguntaUpd = preguntaObj
         preguntaUpd.save()
-        return Response({"msj":"Actualizado correctamente"}, status = status.HTTP_201_OK)
+        return Response({"msj":"Actualizado correctamente"}, status = status.HTTP_200_OK)
     

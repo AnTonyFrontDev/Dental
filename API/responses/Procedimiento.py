@@ -22,7 +22,7 @@ def procedResponse(request):
         data = json.loads(request.body)
         proced = Procedimiento(**data)
         #--
-        procedDel = Procedimiento.objets.get(cod_proced = proced.cod_proced)
+        procedDel = Procedimiento.objects.get(cod_proced = proced.cod_proced)
         procedDel.delete()
         return Response({'msj':f'Eliminado satisfactoriamente Id: {proced.cod_proced}'},status= status.HTTP_200_OK)
     

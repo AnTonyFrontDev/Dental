@@ -6,7 +6,7 @@ import json
 from API.serializers.ClientSerializer import BasicClient,ListClient
 from API.models import Cliente
 #Vista para insertar un cliente o pedir su informacion completa
-@api_view(['GET','POST','PUT','DELETE'])
+@api_view(['GET','POST','PUT','delete'])
 def ClientComplete(request):
     if request.method == 'POST':
         #Obteniendo los datos del body
@@ -18,7 +18,8 @@ def ClientComplete(request):
         cl.save()
         return Response({"mensaje":"Creado"},status=status.HTTP_201_CREATED)
     #--Si el request es DELETE
-    if request.method == 'DELETE':
+    if request.method == "DELETE":
+        print(request.body)
         data = request.body.decode('utf-8')
         #cargando json
         dataDict = json.loads(data)

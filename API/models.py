@@ -38,6 +38,7 @@ class Pregunta_Evaluacion(models.Model):
     cod = models.AutoField(primary_key=True)
     fk_ev  = models.ForeignKey(Evaluacion,on_delete=models.CASCADE)
     fk_pregunta  = models.ForeignKey(Pregunta,on_delete=models.CASCADE)    
+    respuesta = models.TextField(db_column="respuesta")
     #----Clase Meta
     class Meta:
         db_table='Pregunta_Evaluacion'

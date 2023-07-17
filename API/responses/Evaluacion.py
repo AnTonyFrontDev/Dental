@@ -14,7 +14,7 @@ def EvaluacionResponse(request):
         data = json.loads(request.body)
         ev = Evaluacion(**data)
         ev.save()
-        return Response({'mensaje':'creado'},status=status.HTTP_201_CREATED)
+        return Response({'mensaje':ev.id},status=status.HTTP_201_CREATED)
     #- En caso de que la peticion sea Delete
     if request.method == 'DELETE':
         data = request.body.decode('utf-8')
